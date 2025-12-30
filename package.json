@@ -1,0 +1,38 @@
+{
+  "name": "@vanish-email/mcp",
+  "version": "0.0.1",
+  "description": "Model Context Protocol (MCP) server for Vanish Email",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coldpatch/vanish-mcp.git"
+  },
+  "main": "./build/index.js",
+  "type": "module",
+  "bin": {
+    "vanish-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "bun build ./index.ts --target node --outdir ./build --minify && chmod +x build/index.js",
+    "start": "node build/index.js",
+    "dev": "bun run index.ts",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "bun run build"
+  },
+  "files": [
+    "build",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^25.0.3",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.1",
+    "@vanish-email/client": "^0.0.1",
+    "zod": "^4.2.1"
+  }
+}
